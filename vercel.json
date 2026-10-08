@@ -1,0 +1,10 @@
+{
+  "buildCommand": "cd emora-frontend && npm install && npm run build",
+  "outputDirectory": "emora-frontend/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}

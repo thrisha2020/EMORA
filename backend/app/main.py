@@ -41,18 +41,23 @@ async def lifespan(_app: FastAPI):
 
 app = FastAPI(title="Emora — Emotion Assistant API", version="0.2.0", lifespan=lifespan)
 
+origins = [
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "http://localhost",
+    "https://localhost",
+    "capacitor://localhost",
+]
+env_origins = os.getenv("ALLOWED_ORIGINS", "*")
+if env_origins == "*":
+    origins = ["*"]
+elif env_origins:
+    origins.extend([o.strip() for o in env_origins.split(",") if o.strip()])
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        # Android (Capacitor) serves the bundled UI from these origins and calls
-        # this API across origins; without them the phone gets CORS errors.
-        "http://localhost",
-        "https://localhost",
-        "capacitor://localhost",
-    ],
-    allow_credentials=True,
+    allow_origins=origins,
+    allow_credentials=True if origins != ["*"] else False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
