@@ -1,0 +1,4 @@
+# Kept for older instructions that point here. Windows now installs the same
+# dependencies as every other platform; a separate list drifted out of date and
+# left the backend unable to start (9 packages were missing).
+-r requirements.txt

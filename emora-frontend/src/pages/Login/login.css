@@ -1,0 +1,273 @@
+.login-grid {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  grid-template-rows: 20% 55% 25%;
+  background: #020609;
+  color: var(--c-text);
+  overflow: hidden;
+}
+
+.login-row-top {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.login-brand {
+  text-align: center;
+  user-select: none;
+}
+
+.login-brand h1 {
+  margin: 0;
+  font-size: clamp(30px, 4.4vw, 54px);
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  color: #eafcff;
+  text-shadow: 0 0 22px rgba(0, 217, 255, 0.65), 0 0 60px rgba(0, 217, 255, 0.3);
+}
+
+.login-brand h1 .ai {
+  color: var(--c-primary);
+  text-shadow: 0 0 22px rgba(0, 217, 255, 0.9);
+}
+
+.login-brand p {
+  margin: 6px 0 0;
+  font-size: clamp(9px, 1vw, 12px);
+  letter-spacing: 0.55em;
+  color: var(--c-muted);
+}
+
+.login-row-mid {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-row-mid > div:first-child {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.login-speech {
+  position: relative;
+  z-index: 2;
+  margin-top: auto;
+  margin-bottom: 4%;
+  max-width: 90%;
+  text-align: center;
+}
+
+.login-row-bot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 4px;
+}
+
+.login-input-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.login-input {
+  width: min(420px, 58vw);
+  height: 46px;
+  padding: 0 18px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: var(--c-text);
+  background: rgba(3, 10, 18, 0.7);
+  border: 1px solid rgba(0, 217, 255, 0.4);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+  box-shadow: 0 0 0 rgba(0, 217, 255, 0);
+}
+
+.login-input:focus {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 24px rgba(0, 217, 255, 0.35), inset 0 0 12px rgba(0, 217, 255, 0.08);
+}
+
+.login-input::placeholder {
+  color: #2f4a5a;
+}
+
+.login-input:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.login-mic,
+.login-go {
+  height: 46px;
+  border-radius: 10px;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 18px;
+  cursor: pointer;
+  border: 1px solid rgba(0, 217, 255, 0.4);
+  background: rgba(3, 10, 18, 0.7);
+  color: var(--c-primary);
+  transition: box-shadow 0.25s, background 0.25s, transform 0.15s;
+}
+
+.login-mic:hover,
+.login-go:hover {
+  box-shadow: 0 0 24px rgba(0, 217, 255, 0.35);
+}
+
+.login-mic:active,
+.login-go:active {
+  transform: scale(0.97);
+}
+
+.login-go {
+  background: linear-gradient(135deg, rgba(0, 217, 255, 0.18), rgba(123, 92, 255, 0.22));
+  border: 1px solid rgba(0, 217, 255, 0.7);
+  color: #eafcff;
+  text-shadow: 0 0 12px rgba(0, 217, 255, 0.7);
+  box-shadow: 0 0 30px rgba(0, 217, 255, 0.22);
+}
+
+.login-go:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.login-mic-text {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  color: var(--c-accent);
+}
+
+.login-err {
+  margin: 0;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--c-error);
+  text-shadow: 0 0 10px rgba(255, 82, 82, 0.5);
+}
+
+.login-note {
+  margin: 0;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  color: var(--c-muted);
+}
+
+.login-note a {
+  color: var(--c-primary);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 217, 255, 0.4);
+}
+
+.login-note a:hover {
+  text-shadow: 0 0 10px rgba(0, 217, 255, 0.7);
+}
+
+.login-corner {
+  position: absolute;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.25em;
+  color: var(--c-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  user-select: none;
+}
+
+.login-corner-tl {
+  top: 14px;
+  left: 18px;
+}
+
+.login-corner-tr {
+  top: 14px;
+  right: 18px;
+}
+
+.pulse-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--c-success);
+  box-shadow: 0 0 10px var(--c-success);
+  animation: emora-pulse 2s ease-in-out infinite;
+}
+
+/* FaceScanner scan beam sweep */
+.scan-beam {
+  animation: beam-sweep 1.6s ease-in-out infinite;
+}
+
+@keyframes beam-sweep {
+  0% { top: 4%; }
+  50% { top: 92%; }
+  100% { top: 4%; }
+}
+/* Camera is captured but never displayed during login. It must stay in the DOM
+   and playing for capture() to read frames, so it is hidden by size/opacity
+   rather than display:none, which pauses playback in some browsers. */
+.login-hidden-cam {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.login-namecol {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.login-mic.live {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 18px rgba(0, 217, 255, 0.45);
+}
+
+.login-mic.live span {
+  color: var(--c-primary);
+}
+
+.login-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ── Phone layout ──────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .login-card {
+      width: 100%;
+      max-width: 94vw;
+      padding: 18px;
+    }
+
+  .login-name-input {
+      font-size: 16px;
+    }
+}

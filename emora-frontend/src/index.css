@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+/* ── EMORA Design Tokens ── */
+:root {
+  --c-bg:        #020609;
+  --c-surface:   #06111B;
+  --c-surface2:  #0A1A28;
+  --c-primary:   #00D9FF;
+  --c-accent:    #7B5CFF;
+  --c-success:   #00E676;
+  --c-warning:   #FFC107;
+  --c-error:     #FF5252;
+  --c-text:      #C8D6E0;
+  --c-muted:     #4A6272;
+  --c-border:    #0E2535;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body, #root {
+  width: 100%; height: 100%;
+  margin: 0; padding: 0;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: 'Rajdhani', sans-serif;
+  overflow: hidden;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #0e2535; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--c-primary); }
+
+/* Font helpers */
+.font-orbitron  { font-family: 'Orbitron', sans-serif; }
+.font-rajdhani  { font-family: 'Rajdhani', sans-serif; }
+.font-mono      { font-family: 'JetBrains Mono', monospace; }
+
+/* Neon glow helpers */
+.glow-cyan   { text-shadow: 0 0 14px rgba(0,217,255,0.8); }
+.glow-accent { text-shadow: 0 0 14px rgba(123,92,255,0.8); }
+.glow-green  { text-shadow: 0 0 14px rgba(0,230,118,0.8); }
+
+/* Glass panel */
+.glass {
+  background: rgba(6,17,27,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--c-border);
+}
+.glass-neon {
+  background: rgba(6,17,27,0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0,217,255,0.2);
+  box-shadow: 0 0 24px rgba(0,217,255,0.06) inset;
+}
+
+/* Scanline overlay */
+.scanlines::after {
+  content: '';
+  position: fixed; inset: 0; pointer-events: none; z-index: 9998;
+  background: repeating-linear-gradient(
+    0deg, transparent 0px, transparent 2px,
+    rgba(0,217,255,0.012) 3px
+  );
+}
+
+/* Pulse animation */
+@keyframes emora-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.75); }
+}
+.pulse { animation: emora-pulse 2s ease-in-out infinite; }
+
+@keyframes emora-spin { to { transform: rotate(360deg); } }
+.spin-slow { animation: emora-spin 8s linear infinite; }
+.spin-reverse { animation: emora-spin 12s linear infinite reverse; }
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up { animation: fade-in-up 0.7s ease forwards; }
+
+@keyframes blink-cursor { 50% { opacity: 0; } }
+.cursor { animation: blink-cursor 1s steps(1) infinite; color: var(--c-primary); }

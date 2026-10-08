@@ -1,0 +1,423 @@
+.set-root {
+  padding: 20px;
+  height: 100%;
+  overflow-y: auto;
+  background: var(--c-bg);
+}
+
+.set-root h2 {
+  font-size: 18px;
+  letter-spacing: 0.22em;
+  color: var(--c-primary);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 16px;
+}
+
+/* Providers + avatar on top, the small info cards in one row beneath. */
+.set-top {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 14px;
+  margin-bottom: 14px;
+}
+
+.set-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 14px;
+}
+
+@media (max-width: 1100px) {
+  .set-top { grid-template-columns: 1fr; }
+}
+
+.set-card {
+  background: rgba(6, 17, 27, 0.85);
+  border: 1px solid var(--c-border);
+  border-radius: 14px;
+  padding: 16px;
+}
+
+.set-card h3 {
+  margin: 0 0 12px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--c-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.set-row {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  margin: 6px 0;
+}
+
+.set-row span { color: var(--c-muted); white-space: nowrap; }
+.set-row b { color: var(--c-text); font-weight: 600; display: flex; align-items: center; gap: 6px; text-align: right; }
+
+/* Cards that are a vertical list of controls. */
+.set-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.set-stack h3 { margin-bottom: 2px; }
+.set-stack .set-btn { justify-content: center; }
+
+.set-divider {
+  height: 1px;
+  background: var(--c-border);
+  margin: 2px 0;
+}
+
+.set-check {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12.5px;
+  color: var(--c-text);
+  cursor: pointer;
+}
+
+.set-check span { display: flex; flex-direction: column; gap: 2px; }
+.set-check small { color: var(--c-muted); font-size: 11px; line-height: 1.4; }
+
+.set-check input {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  accent-color: var(--c-primary);
+  cursor: pointer;
+}
+
+.set-check:has(input:disabled) { opacity: 0.5; cursor: not-allowed; }
+
+.set-time-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.set-field input[type='range'] {
+  padding: 0;
+  border: none;
+  background: none;
+  accent-color: var(--c-primary);
+  box-shadow: none;
+}
+
+.set-field input:disabled { opacity: 0.5; }
+
+/* Engine status */
+.set-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--c-muted);
+}
+
+.set-dot.ready { background: #00e676; box-shadow: 0 0 6px rgba(0, 230, 118, 0.6); }
+.set-dot.loading,
+.set-dot.fallback { background: #ffb545; }
+.set-dot.offline { background: #ff5252; }
+
+.set-danger {
+  margin-top: 12px;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 82, 82, 0.4);
+  background: rgba(255, 82, 82, 0.12);
+  color: var(--c-error);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.set-hint {
+  font-size: 13px;
+  color: var(--c-muted);
+  line-height: 1.5;
+  margin: 0 0 10px;
+}
+
+.set-list {
+  margin: 0;
+  padding-left: 16px;
+  font-size: 12px;
+  color: var(--c-muted);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.set-foot {
+  margin-top: 16px;
+  text-align: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  color: var(--c-muted);
+}
+
+/* --- Provider / API-key management ---------------------------------------- */
+
+.set-hint code {
+  color: var(--c-primary);
+  font-size: 11px;
+}
+
+.set-provider-grid {
+  display: grid;
+  gap: 14px;
+}
+
+.set-avatar-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.set-avatar-preview {
+  position: relative;
+  flex: 1;
+  min-height: 240px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(0, 217, 255, 0.16);
+  border-radius: 10px;
+  background: radial-gradient(circle at 50% 40%, rgba(0, 217, 255, 0.1), rgba(2, 6, 9, 0.8));
+  overflow: hidden;
+}
+
+.set-avatar-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--c-muted);
+  font-size: 12px;
+  pointer-events: none;
+}
+
+/* Sits inside the providers card, so no second border. */
+.set-provider {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.set-provider-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.set-provider-name {
+  color: #eafcff;
+  font-size: 12.5px;
+  letter-spacing: 0.1em;
+}
+
+.set-badge {
+  margin-left: 8px;
+  padding: 2px 7px;
+  border-radius: 999px;
+  background: rgba(0, 217, 255, 0.16);
+  color: var(--c-primary);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  vertical-align: 1px;
+}
+
+.set-masked {
+  color: var(--c-muted);
+  font-size: 10.5px;
+  letter-spacing: 0.04em;
+}
+
+.set-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.set-field > span {
+  color: var(--c-muted);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.set-field input,
+.set-field select {
+  width: 100%;
+  padding: 9px 11px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 9px;
+  background: rgba(2, 6, 9, 0.8);
+  color: #eafcff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.set-field input:focus,
+.set-field select:focus {
+  border-color: var(--c-primary);
+  box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.12);
+}
+
+.set-key-row {
+  display: flex;
+  gap: 6px;
+}
+
+.set-key-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.set-icon-btn {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  border: 1px solid rgba(0, 217, 255, 0.2);
+  border-radius: 9px;
+  background: rgba(2, 6, 9, 0.8);
+  color: var(--c-muted);
+  cursor: pointer;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.set-icon-btn:hover {
+  color: var(--c-primary);
+  border-color: var(--c-primary);
+}
+
+.set-icon-btn.danger:hover {
+  color: #ff5252;
+  border-color: rgba(255, 82, 82, 0.6);
+}
+
+.set-status {
+  display: flex;
+  align-items: flex-start;
+  gap: 7px;
+  margin: 0;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.set-status.ok {
+  background: rgba(0, 230, 118, 0.1);
+  color: #6ff0ab;
+}
+
+.set-status.bad {
+  background: rgba(255, 82, 82, 0.1);
+  color: #ff9a9a;
+}
+
+.set-provider-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+  margin-top: 2px;
+}
+
+.set-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 13px;
+  border: 1px solid rgba(0, 217, 255, 0.28);
+  border-radius: 9px;
+  background: transparent;
+  color: #cfefff;
+  font-size: 11.5px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s;
+}
+
+.set-btn:hover:not(:disabled) {
+  background: rgba(0, 217, 255, 0.1);
+  border-color: var(--c-primary);
+}
+
+.set-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.set-btn.primary {
+  background: rgba(0, 217, 255, 0.14);
+  border-color: rgba(0, 217, 255, 0.55);
+  color: #eafcff;
+}
+
+.set-btn.ghost {
+  border-color: rgba(255, 255, 255, 0.12);
+  color: var(--c-muted);
+}
+
+.spin {
+  animation: set-spin 0.9s linear infinite;
+}
+
+@keyframes set-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .spin {
+    animation: none;
+  }
+}
+
+/* ── Phone layout ──────────────────────────────────────────────── */
+@media (max-width: 820px) {
+  .set-root {
+      padding: 12px;
+    }
+
+  .set-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+  .set-avatar-preview {
+      min-height: 200px;
+    }
+
+  .set-field select {
+      font-size: 16px;
+    }
+
+  .set-provider-actions {
+      gap: 6px;
+    }
+}

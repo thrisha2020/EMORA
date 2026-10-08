@@ -1,0 +1,94 @@
+.emo-waiting {
+  margin: 10px 0 4px;
+  color: var(--c-muted);
+  font-size: 11.5px;
+  letter-spacing: 0.06em;
+}
+
+.emo-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.emo-bar {
+  display: grid;
+  grid-template-columns: 58px 1fr 34px;
+  align-items: center;
+  gap: 8px;
+}
+
+.emo-bar-label {
+  color: var(--c-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: capitalize;
+}
+
+.emo-bar-track {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.07);
+  overflow: hidden;
+}
+
+.emo-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+}
+
+.emo-bar-pct {
+  color: #cfefff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-align: right;
+}
+
+.emo-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 217, 255, 0.12);
+}
+
+.emo-row {
+  display: grid;
+  grid-template-columns: 48px 1fr auto;
+  align-items: baseline;
+  gap: 8px;
+  font-size: 11px;
+}
+
+.emo-row-label {
+  color: var(--c-muted);
+  letter-spacing: 0.1em;
+  font-size: 9.5px;
+  text-transform: uppercase;
+}
+
+.emo-row-value {
+  text-transform: capitalize;
+}
+
+.emo-row-none {
+  grid-column: 2 / -1;
+  color: rgba(255, 255, 255, 0.28);
+  font-style: italic;
+  font-size: 10.5px;
+}
+
+.emo-row-pct {
+  color: var(--c-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+}
+
+.emo-agreement {
+  margin: 10px 0 0;
+  color: var(--c-muted);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+}

@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Emora</string>
+    <string name="title_activity_main">Emora</string>
+    <string name="package_name">com.emora.assistant</string>
+    <string name="custom_url_scheme">com.emora.assistant</string>
+</resources>

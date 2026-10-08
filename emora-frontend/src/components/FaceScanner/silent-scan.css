@@ -1,0 +1,90 @@
+.scan-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.scan-ring-stack {
+  position: relative;
+  width: clamp(150px, 17vw, 200px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+}
+
+.scan-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.scan-ring {
+  fill: none;
+  stroke: rgba(0, 217, 255, 0.22);
+  stroke-width: 1;
+}
+
+.scan-ring.faint {
+  stroke: rgba(0, 217, 255, 0.1);
+  stroke-dasharray: 3 6;
+}
+
+.scan-bracket {
+  fill: none;
+  stroke: var(--c-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.scan-progress {
+  fill: none;
+  stroke: var(--c-primary);
+  stroke-width: 2;
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 6px rgba(0, 217, 255, 0.7));
+  transform: rotate(-90deg);
+  transform-origin: 100px 100px;
+}
+
+.scan-core {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  color: var(--c-primary);
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.16), transparent 70%);
+  box-shadow: 0 0 26px rgba(0, 217, 255, 0.35);
+}
+
+.scan-readout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  text-align: center;
+}
+
+.scan-label {
+  color: #eafcff;
+  letter-spacing: 0.24em;
+  font-size: 12px;
+}
+
+.scan-sub {
+  color: var(--c-muted);
+  letter-spacing: 0.14em;
+  font-size: 10px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scan-svg *,
+  .scan-core {
+    animation: none !important;
+  }
+}

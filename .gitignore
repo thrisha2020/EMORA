@@ -1,0 +1,50 @@
+# Data (biometric — never commit)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Frontend / Node
+node_modules/
+dist/
+build/
+*.log
+
+# Env / secrets
+.env
+.env.*
+!.env.example
+
+# Models (large files)
+backend/models/*.h5
+backend/models/*.pt
+backend/models/*.pkl
+
+# DB
+*.db
+*.sqlite3
+
+# OS & IDE
+.DS_Store
+.vscode/
+.idea/
+
+# Per-user memory files (personal data)
+data/memories/
+data/memories_*.json
+
+# Large 3D source files (keep the exported .glb, not the .blend)
+assets/models/*.blend
+assets/models/*.blend1
+assets/models/*.fbx
+
+# Evaluation samples (biometric — never commit)
+data/eval/
+evaluation/results/*.md
+.env.bak-*
